@@ -28,7 +28,11 @@ export class SimpleMaps extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			lostPets: [],
+			lostPets: [{
+                lat: 26.1734,
+                lng: -80.1345,
+                name: "Fluffy"
+            }],
 			foundPets: []
 		};
 	}
