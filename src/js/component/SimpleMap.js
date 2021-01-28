@@ -1,6 +1,7 @@
 import React from "react";
 import GoogleMapReact from "google-map-react";
 import PropTypes from "prop-types";
+import styled from "styled-components";
 
 const API_KEY = "";
 
@@ -32,12 +33,10 @@ export class SimpleMaps extends React.Component {
 					bootstrapURLKeys={{ key: API_KEY }}
 					defaultCenter={this.props.center}
 					defaultZoom={this.props.zoom}
-					yesIWantToUseGoogleMapApiInternals
-					onGoogleApiLoaded={({ map, maps }) =>
-						apiIsLoaded(map, maps, places)
-					}>
-					{this.state.lostPets.map(() => (
+					yesIWantToUseGoogleMapApiInternals>
+					{this.state.lostPets.map((pet, i) => (
 						<Marker
+							key={i}
 							lat={59.955413}
 							lng={30.337844}
 							text="My Marker"
