@@ -5,7 +5,24 @@ import styled from "styled-components";
 
 const API_KEY = "";
 
-const Marker = ({ text }) => <div>{text}</div>;
+const Wrapper = styled.div`
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 18px;
+	height: 18px;
+	background-color: #000;
+	border: 2px solid #fff;
+	border-radius: 100%;
+	user-select: none;
+	transform: translate(-50%, -50%);
+	cursor: ${props => (props.onClick ? "pointer" : "default")};
+	&:hover {
+		z-index: 1;
+	}
+`;
+
+const Marker = ({ text, onClick }) => <Wrapper alt={text} onClick={onClick} />;
 
 export class SimpleMaps extends React.Component {
 	constructor(props) {
@@ -37,9 +54,9 @@ export class SimpleMaps extends React.Component {
 					{this.state.lostPets.map((pet, i) => (
 						<Marker
 							key={i}
-							lat={59.955413}
-							lng={30.337844}
-							text="My Marker"
+							lat={pet.lat}
+							lng={pet.lng}
+							text={pet.name}
 						/>
 					))}
 				</GoogleMapReact>
