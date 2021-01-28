@@ -9,11 +9,11 @@ const Wrapper = styled.div`
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	width: 18px;
-	height: 18px;
-	background-color: #000;
-	border: 2px solid #fff;
-	border-radius: 100%;
+	width: 50px;
+	height: 25px;
+	background-color: white;
+	border: 2px solid lightblue;
+	border-radius: 10px;
 	user-select: none;
 	transform: translate(-50%, -50%);
 	cursor: ${props => (props.onClick ? "pointer" : "default")};
@@ -28,11 +28,13 @@ export class SimpleMaps extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			lostPets: [{
-                lat: 26.1734,
-                lng: -80.1345,
-                name: "Fluffy"
-            }],
+			lostPets: [
+				{
+					lat: 26.1734,
+					lng: -80.1345,
+					name: "Fluffy"
+				}
+			],
 			foundPets: []
 		};
 	}
@@ -72,7 +74,8 @@ export class SimpleMaps extends React.Component {
 Marker.propTypes = {
 	text: PropTypes.string,
 	center: PropTypes.object,
-	zoom: PropTypes.number
+	zoom: PropTypes.number,
+	onClick: PropTypes.func
 };
 
 SimpleMaps.propTypes = {
